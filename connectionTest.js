@@ -4,7 +4,8 @@ let con = mysql.createConnection(
     {
         host: "localhost",
         user: "node",
-        password: "bookable"
+        password: "bookable",
+        database: "Bookable"
     }
 );
 
