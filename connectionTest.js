@@ -1,5 +1,9 @@
-const mysql = require('mysql');
+//Importing the mysql and express modules
+let mysql = require('mysql');
+const express = require('express');
+const app = express();
 
+//Defining connection parameters
 let con = mysql.createConnection(
     {
         host: "localhost",
@@ -9,26 +13,35 @@ let con = mysql.createConnection(
     }
 );
 
+//Attempting to connect to the database
 con.connect(function(err)
 {
-    if(err) 
+    //Terminating the program in case of an error
+    if(err)
     {
         console.log("Error in connecting to db");
         con.end();
         process.exit(0);
     }
-    connSuccess();
+
 });
 
-let q1 = "SHOW DATABASES";
+let q1 = 'SELECT * FROM test;';
 
-function connSuccess()
+//Express handling GET
+app.get('/', function(req, res)
 {
-    con.query(q1, function(error, results)
+    con.query(q1, function(err, result)
     {
-        console.log("Query");
-        if(error) throw error;
-        console.log(results);
-        process.exit(0);
+        if(err)
+            res.status(500).send("Database error").end();
+        else
+        {
+            res.json(result);
+        }
     });
-}
+});
+
+app.listen(3000, function(){
+    console.log("Server listening on port 3000");
+});
