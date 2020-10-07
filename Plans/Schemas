@@ -1,0 +1,36 @@
+A file for all the databases schemas
+
+List of tables:
+
+1. Bookable
+2. Bus
+3. Flight
+4. User
+5. Customer
+6. Manager
+7. Booking
+
+Bookable Table:
+
+ID PRI KEY
+TotSeat
+Type //can be either Bus or Flight
+Owner //travel name for bus and airline for flight
+Src
+Dest
+Dep
+Arr
+Fare //cost per ticket
+
+Bus Table:
+
+Vehicle Number
+Seat Type
+Ac Type 
+// we will add seat type but front end will be the same
+
+Flight Table:
+
+Flight Number
+Source airport
+Destination airport
