@@ -1,7 +1,13 @@
 //Importing the mysql and express modules
 let mysql = require('mysql');
 const express = require('express');
+const cookieParser = require('cookie-parser');
 const app = express();
+const bodyParser =  require('body-parser');
+
+app.use(bodyParser.urlencoded({extended:true}));
+
+app.use(express.static('static'));
 
 //Defining connection parameters
 let con = mysql.createConnection(
@@ -26,18 +32,22 @@ con.connect(function(err)
 
 });
 
-let q1 = 'SELECT * FROM Bookable;';
 
 //Express handling GET
-app.get('/', function(req, res)
+app.post('/insertTest', function(req, res)
 {
-    con.query(q1, function(err, result)
+    console.log("Request");
+    console.log(req.body);
+    let query = `INSERT INTO Bookable (TotSeat, Type, Owner, Src, Dest, Dep, Arr, Fare) VALUES ('${req.body.owner}', ${req.body.seatCount}, '${req.body.type}', '${req.body.src}', '${req.body.dest}', '${req.body.dep}', '${req.body.arr}', '${req.body.fare}')`;
+    console.log(query);
+    con.query(query, function(err, result)
     {
+
         if(err)
             res.status(500).send("Database error").end();
         else
         {
-            res.json(result);
+            res.status(200).end();
         }
     });
 });
