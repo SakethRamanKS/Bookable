@@ -6,10 +6,10 @@ const app = express();
 //Defining connection parameters
 let con = mysql.createConnection(
     {
-        host: "localhost",
-        user: "node",
-        password: "bookable",
-        database: "Bookable"
+        host: "sql12.freemysqlhosting.net",
+        user: "sql12369498",
+        password: "e7xlPpldkD",
+        database: "sql12369498"
     }
 );
 
@@ -26,7 +26,7 @@ con.connect(function(err)
 
 });
 
-let q1 = 'SELECT * FROM test;';
+let q1 = 'SELECT * FROM Bookable;';
 
 //Express handling GET
 app.get('/', function(req, res)
