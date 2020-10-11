@@ -1,0 +1,44 @@
+GET - Retrieve Data
+POST - Create Data
+PUT - Update Data
+DELETE - Delete Data
+
+mainurl - mainurl of website http://domain.something/ - indicated by .
+
+All html files will be URLed by filename
+
+Refers to all bookables in general:
+
+GET ./bookable: Retrieves all Bookables
+POST ./bookable: Create a new Bookable (priveleged: Manager) (Specify as JSON)
+PUT ./bookable: Not implemented
+DELETE ./bookable: Not needed
+
+URLs below this will refer to one particular bookable
+
+GET ./bookable:id: Retrieve the specified bookable
+POST ./bookable:id: Not implemented
+PUT ./bookable:id: Specify new values as JSON, update the specified bookable
+DELETE ./bookable:id: Delete the specified bookable 
+
+
+User endpoints
+
+
+GET ./user: Not implemented
+POST ./user: Creates a new user
+PUT ./user: Not implemented
+DELETE ./user: Not needed
+
+GET ./user/:userid: Get details of userid
+POST ./user/userid: Not implemented
+PUT ./user/userid: Edit user profile
+DELETE ./user/userid: Delete user profile
+
+
+Book - Make a book.htm and connect it using AJAX to PUT ./bookable/id. Also update the Bookings table.
+
+POST /booking - Creates a new entry in the booking table.
+DELETE /booking/bookingId - Deletes a bookings entry.
+
+
