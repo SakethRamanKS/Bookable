@@ -33,7 +33,7 @@ con.connect(function(err)
 });
 
 
-//Express handling GET
+//Express handling POST
 app.post('/insertTest', function(req, res)
 {
     console.log("Request");
@@ -50,6 +50,20 @@ app.post('/insertTest', function(req, res)
             res.status(200).end();
         }
     });
+});
+
+app.get('/', function(req, res)
+{
+	let query = 'Select * from Bookable';
+	con.query(query, function(err, result)
+	{
+		if(err)
+			res.status(500).send("Database error").end();
+		else
+		{
+			res.json(result);
+		}
+	});
 });
 
 app.listen(3000, function(){
