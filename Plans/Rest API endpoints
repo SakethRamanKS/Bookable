@@ -41,4 +41,9 @@ Book - Make a book.htm and connect it using AJAX to PUT ./bookable/id. Also upda
 POST /booking - Creates a new entry in the booking table.
 DELETE /booking/bookingId - Deletes a bookings entry.
 
+Deleting booked ticket:
+
+POST /bookable:id to make the booked seats available again
+DELETE /booking/bookingId - (use trigger)
+
 
