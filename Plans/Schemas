@@ -34,3 +34,28 @@ Flight Table:
 Flight Number
 Source airport
 Destination airport
+
+
+User Table:
+
+ID PRI KEY
+Username
+Email
+Password (hashed)
+Type
+
+Manager:
+
+Travels name
+Bookable count
+
+
+Customer:
+
+Name
+DOB
+Gender
+
+
+
+
