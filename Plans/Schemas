@@ -72,9 +72,3 @@ List of relationships:
 
 Customer BOOKS Bookable (Many - Many)
 Manager MANAGES Bookable (One - Many)
-
-
-
-
-
-
