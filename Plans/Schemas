@@ -22,9 +22,6 @@ Dep
 Arr
 Fare //cost per ticket
 
---UPDATE--
-//Planned: ManagerID (FOREIGN KEY for relationship)
-
 Bus Table:
 
 ID PRI KEY // Option 8a
@@ -75,7 +72,6 @@ List of relationships:
 
 Customer BOOKS Bookable (Many - Many)
 Manager MANAGES Bookable (One - Many)
-Anything else?
 
 
 
