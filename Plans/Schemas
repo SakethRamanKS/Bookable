@@ -24,6 +24,7 @@ Fare //cost per ticket
 
 Bus Table:
 
+ID PRI KEY // Option 8a
 Vehicle Number
 Seat Type
 Ac Type 
@@ -31,6 +32,7 @@ Ac Type
 
 Flight Table:
 
+ID PRI KEY // Option 8a
 Flight Number
 Source airport
 Destination airport
@@ -46,15 +48,25 @@ Type
 
 Manager:
 
+ID PRI KEY // Option 8a
 Travels name
 Bookable count
 
 
 Customer:
 
+ID PRI KEY // Option 8a
 Name
 DOB
 Gender
+
+List of relationships:
+
+Customer BOOKS Bookable (Many - Many)
+Manager MANAGES Bookable (One - Many)
+Anything else?
+
+
 
 
 
