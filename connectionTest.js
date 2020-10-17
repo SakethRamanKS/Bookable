@@ -32,9 +32,12 @@ con.connect(function(err)
 
 });
 
+let userRouter = require('./routers/userRouter.js');
+
+app.use('/user', userRouter);
 
 //Express handling POST
-app.post('/insertTest', function(req, res)
+/*app.post('/insertTest', function(req, res)
 {
     console.log("Request");
     console.log(req.body);
@@ -65,6 +68,7 @@ app.get('/', function(req, res)
 		}
 	});
 });
+*/
 
 app.listen(3000, function(){
     console.log("Server listening on port 3000");
