@@ -2,15 +2,15 @@ const express = require('express');
 const bodyParser = require('body-parser')
 const sql = require('../sqlCon.js');
 
-let userRouter = express.Router();
+let bookableRouter = express.Router();
 
-userRouter.use(bodyParser.json());
+bookableRouter.use(bodyParser.json());
 
-userRouter.route("/")
-.post((req, res) => {
+bookableRouter.route("/")
 
-	let query = `INSERT INTO Users(Username, Email, Password, Type) VALUES('${req.body.Username}', '${req.body.Email}', '${req.body.Password}', ${req.body.Type})`;
+.get((req, res) => {
 
+	let query = 'SELECT * FROM Bookable';
 	sql.init(function(con)
 	{
 		con.query(query, function(error, result)
@@ -24,4 +24,5 @@ userRouter.route("/")
 
 });
 
-module.exports = userRouter;
+
+module.exports = bookableRouter;
