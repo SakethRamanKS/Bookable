@@ -38,13 +38,15 @@ Source airport
 Destination airport
 
 
-User Table:
+Users Table:
 
 ID PRI KEY
-Username
+Username - 20(max)
 Email
 Password (hashed)
 Type
+Constraints - Username_Constraint
+
 
 Manager:
 
