@@ -18,7 +18,7 @@ userRouter.route("/")
 			if(error)
 				res.status(500).send(error).end();
 			else
-				res.status(200).send(result).end();
+				res.status(201).send(result).end();
 		});
 	});
 
