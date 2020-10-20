@@ -8,7 +8,10 @@ const bodyParser =  require('body-parser');
 
 app.use(bodyParser.urlencoded({extended:true}));
 
-app.use(express.static('static'));
+app.use(express.static('./static/html'));
+app.use(express.static('./static/css'));
+app.use(express.static('./static/js'));
+app.use(express.static('./static/Image'));
 
 //Inclduing and mounting routers
 let userRouter = require('./routers/userRouter.js');
