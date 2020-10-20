@@ -1,0 +1,34 @@
+	  html
+      {
+        height: 100%;
+        margin: 0;
+      }
+
+      .bg 
+      {
+        /* The image used */
+        background-image: url("home-1.jpg");
+
+        /* Full height */
+        height: 100%; 
+
+        /* Center and scale the image nicely */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        color: white !important;
+
+      }
+
+      .image-text
+      {
+        font-size: 1000%;
+        color: white;
+
+      }
+
+      #bigSize
+      {
+        font-size: 140%;
+      }
+ 
