@@ -1,0 +1,80 @@
+body
+{
+	background-color: #282c34;
+
+	color: HSL(40, 94%, 60%);
+
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    font-size: calc(10px + 2vmin);
+
+    text-align: center;
+}
+
+header
+{
+	font-size: 250%;
+	font-family: arial;
+
+	border-style: none none solid none;
+	border-color: HSL(165, 85%, 40%);
+}
+
+#welcome
+{
+	font-size: 150%;
+}
+
+.flexbox-container
+{
+	display: flex;
+	justify-content: center;
+}
+
+.flexbox-container > div
+{
+	margin: 20px;
+	padding: 10px;
+	border: 3px solid HSL(165, 85%, 40%);
+	width: 20%;
+	display: none;
+}
+
+.flexbox-container > div:hover
+{
+	color: HSL(165, 85%, 40%);
+	border-color: HSL(40, 94%, 60%);
+}
+
+.flexbox-container > img
+{
+	margin: 20px;
+	padding: 10px;
+	width: 20%;
+}
+
+.row
+{
+	display: flex;
+
+	text-align: center;
+	margin: 2%;
+	font-size: normal;
+
+	border: 1px solid HSL(40, 94%, 60%);
+	color: HSL(165, 85%, 40%);
+	padding: 2%;
+	
+	display: none;
+}
+
+.column1
+{
+	flex: 30%;
+}
+
+.column2
+{
+	flex: 70%;
+}
