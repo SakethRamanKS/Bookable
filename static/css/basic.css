@@ -11,12 +11,10 @@ body
   background-color: #64dd17 !important;
   color: #000000 !important; 
   border-radius: 3%;
+  padding: 1%;
 }
 
-a
-{
-color: #64dd17 !important;
-}
+
 
 .primary-light
 {
@@ -57,4 +55,9 @@ nav
   background-color: #ffb300 !important;
   border-radius: 1.5%;
   right: 0px;
+}
+
+.page-header
+{
+  font-size: 200% !important;
 }

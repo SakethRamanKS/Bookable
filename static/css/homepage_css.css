@@ -52,9 +52,23 @@
 
       }
 
-      .image-text
+      .image-text-big
       {
-        font-size: 1000%;
+        font-size: 200%;
+        color: white;
+        overflow: scroll;
+      }
+
+      .image-text-medium
+      {
+        font-size: 500%;
+        color: white;
+        overflow: scroll;
+      }
+
+      .image-text-small
+      {
+        font-size: 250%;
         color: white;
         overflow: scroll;
       }
@@ -70,4 +84,29 @@
  		     right: 50%;
       	width: 50%;
       	height: 10%;
+      }
+
+      .box
+      {
+        position: fixed;
+        top: 11%;
+        right: 1.5%;
+        background-color: #264653;
+        padding: 1.5%;
+        color: white;
+        width: 25%;
+        border-radius: 2%
+      }
+
+      input
+      {
+        width: 75% !important;
+        border-width: 0px 0px 2px 0px !important;
+        background-color: #264653 !important;
+      }
+
+      a.box
+      {
+        color: black !important;
+
       }
