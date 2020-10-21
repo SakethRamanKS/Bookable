@@ -4,10 +4,42 @@
         margin: 0;
       }
 
-      .bg 
+      .bg-1 
       {
         /* The image used */
         background-image: url("home-1.jpg");
+
+        /* Full height */
+        height: 100%; 
+
+        /* Center and scale the image nicely */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        color: white !important;
+
+      }
+
+      .bg-2 
+      {
+        /* The image used */
+        background-image: url("home-2.jpg");
+
+        /* Full height */
+        height: 100%; 
+
+        /* Center and scale the image nicely */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        color: white !important;
+
+      }
+
+      .bg-3 
+      {
+        /* The image used */
+        background-image: url("home-3.jpg");
 
         /* Full height */
         height: 100%; 
@@ -24,7 +56,7 @@
       {
         font-size: 1000%;
         color: white;
-
+        overflow: scroll;
       }
 
       #bigSize
@@ -32,3 +64,10 @@
         font-size: 140%;
       }
  
+      .jumbotron
+      {
+      	
+ 		     right: 50%;
+      	width: 50%;
+      	height: 10%;
+      }
