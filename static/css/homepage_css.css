@@ -91,16 +91,16 @@
         position: fixed;
         top: 11%;
         right: 1.5%;
-        background-color: #264653;
+        background-color: #011627;
         padding: 1.5%;
         color: white;
-        width: 25%;
+        width: 30%;
         border-radius: 2%
       }
 
       input
       {
-        width: 75% !important;
+        width: 60% !important;
         border-width: 0px 0px 2px 0px !important;
         background-color: #264653 !important;
       }

@@ -70,6 +70,11 @@ CustomerID FOREIGN KEY
 TXNID
 TicketCount
 
+Seat:
+
+BookableId FORIEIGN KEY
+SeatNo PARTIAL KEY
+
 List of relationships:
 
 Customer BOOKS Bookable (Many - Many)
