@@ -9,18 +9,20 @@ userRouter.use(bodyParser.json());
 userRouter.route("/")
 .post((req, res) => {
 
-	let query = `INSERT INTO Users(Username, Email, Password, Type) VALUES('${req.body.Username}', '${req.body.Email}', '${req.body.Password}', ${req.body.Type})`;
+	console.log(req.body);
+	res.send("Received POST request at /user with request body: " + req.body);
+	// let query = `INSERT INTO Users(Username, Email, Password, Type) VALUES('${req.body.Username}', '${req.body.Email}', '${req.body.Password}', ${req.body.Type})`;
 
-	sql.init(function(con)
-	{
-		con.query(query, function(error, result)
-		{
-			if(error)
-				res.status(500).send(error).end();
-			else
-				res.status(201).send(result).end();
-		});
-	});
+	// sql.init(function(con)
+	// {
+	// 	con.query(query, function(error, result)
+	// 	{
+	// 		if(error)
+	// 			res.status(500).send(error).end();
+	// 		else
+	// 			res.status(201).send(result).end();
+	// 	});
+	// });
 
 });
 
