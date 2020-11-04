@@ -9,10 +9,10 @@ function init(callback)
     {
         con = mysql.createConnection(
             {
-                host: "sql12.freemysqlhosting.net",
-                user: "sql12369498",
-                password: "e7xlPpldkD",
-                database: "sql12369498"
+                host: "sakethr.heliohost.us",
+                user: "sakethr_node",
+                password: "NodePass1",
+                database: "Bookable"
             }
         );
 
