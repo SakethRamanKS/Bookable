@@ -1,29 +1,36 @@
 const express = require('express');
 const bodyParser = require('body-parser')
-const sql = require('../sqlCon.js');
 
 let userRouter = express.Router();
 
 userRouter.use(bodyParser.json());
 
+let conn = require('../connections/dbConnection.js');
+let user = require('../models/userModel.js');
+
 userRouter.route("/")
-.post((req, res) => {
+.post(async (req, res) => {
 
 	console.log(req.body);
-	res.send("Received POST request at /user with request body: " + req.body);
-	// let query = `INSERT INTO Users(Username, Email, Password, Type) VALUES('${req.body.Username}', '${req.body.Email}', '${req.body.Password}', ${req.body.Type})`;
+	console.log("Received POST request at /user with request body: " + req.body);
+	
+	await user.create(
+		{
+			Username: req.body.Username,
+			Password: req.body.Password,
+			Email: req.body.Email,
+			Type: req.body.Type
+		}
+	);
 
-	// sql.init(function(con)
-	// {
-	// 	con.query(query, function(error, result)
-	// 	{
-	// 		if(error)
-	// 			res.status(500).send(error).end();
-	// 		else
-	// 			res.status(201).send(result).end();
-	// 	});
-	// });
+	res.status(201).send("User created").end();
+});
 
+userRouter.route('/:userId')
+.get(async (req, res) => {
+
+	let row = await user.findByPk(req.params.userId);
+	res.status(200).json(row.toJSON()).end();
 });
 
 module.exports = userRouter;

@@ -1,6 +1,5 @@
 const express = require('express');
 const bodyParser = require('body-parser')
-const sql = require('../sqlCon.js');
 
 let bookableRouter = express.Router();
 

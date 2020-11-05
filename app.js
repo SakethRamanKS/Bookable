@@ -1,5 +1,5 @@
 //Importing the mysql and express modules
-let sql = require('./sqlCon.js');
+const conn = require('./connections/dbConnection.js');
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const app = express();
@@ -15,12 +15,13 @@ app.use(express.static('./static/Image'));
 
 //Inclduing and mounting routers
 let userRouter = require('./routers/userRouter.js');
-let bookableRouter = require('./routers/bookableRouter.js');
+
 
 app.use('/user', userRouter);
-app.use('/bookable', bookableRouter);
+
 
 
 app.listen(3000, function(){
     console.log("Server listening on port 3000");
 });
+
