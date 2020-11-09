@@ -13,9 +13,10 @@ app.use(express.static('./static/css'));
 app.use(express.static('./static/js'));
 app.use(express.static('./static/Image'));
 
+
+
 //Inclduing and mounting routers
 let userRouter = require('./routers/userRouter.js');
-
 
 app.use('/user', userRouter);
 
@@ -25,3 +26,4 @@ app.listen(3000, function(){
     console.log("Server listening on port 3000");
 });
 
+const conn2 = require('./connections/dbInit.js');

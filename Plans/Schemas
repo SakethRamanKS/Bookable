@@ -1,4 +1,4 @@
-	A file for all the databases schemas
+A file for all the databases schemas
 
 List of tables:
 
@@ -58,8 +58,8 @@ Bookable count
 Customer:
 
 ID PRI KEY // Option 8a
-Name
-DOB
+Name ??
+DoB
 Gender
 
 
