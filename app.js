@@ -17,9 +17,10 @@ app.use(express.static('./static/Image'));
 
 //Inclduing and mounting routers
 let userRouter = require('./routers/userRouter.js');
+let bookableRouter = require('./routers/bookableRouter');
 
 app.use('/user', userRouter);
-
+app.use('/bookable', bookableRouter);
 
 
 app.listen(3000, function(){

@@ -12,4 +12,6 @@ const Customer = sequelize.define('Customer', {
 Customer.belongsTo(User);
 User.hasOne(Customer);
 
+
+
 module.exports = Customer;
