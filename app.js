@@ -18,13 +18,18 @@ app.use(express.static('./static/Image'));
 //Inclduing and mounting routers
 let userRouter = require('./routers/userRouter.js');
 let bookableRouter = require('./routers/bookableRouter');
+const bookingsRouter = require('./routers/bookingsRouter.js');
+const bookedseatRouter = require('./routers/bookedseatRouter.js');
 
 app.use('/user', userRouter);
 app.use('/bookable', bookableRouter);
-
+app.use('/bookings', bookingsRouter);
+app.use('/bookedseats', bookedseatRouter);
 
 app.listen(3000, function(){
     console.log("Server listening on port 3000");
 });
 
 const conn2 = require('./connections/dbInit.js');
+
+

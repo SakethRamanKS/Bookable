@@ -19,13 +19,11 @@ userRouter.route("/")
 	
 	if(req.body.Type == 0)
 	{
-		let newcust = await customer.create(req.body);
-		newuser.createCustomer(newcust);
+		newuser.createCustomer(req.body);
 	}
 	if(req.body.Type == 1)
 	{
-		let newman = await manager.create(req.body);
-		newuser.createManager(newman);
+		newuser.createManager(req.body);
 	}
 
 	res.status(201).send("User created").end();

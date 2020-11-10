@@ -7,7 +7,8 @@ let Bookable = require('./bookableModel');
 const Bookings = sequelize.define('Booking', {
     TXNId: {
         type: DataTypes.INTEGER,
-        primaryKey: true
+        primaryKey: true,
+        autoIncrement: true
     }
 });
 

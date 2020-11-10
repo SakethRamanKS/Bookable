@@ -10,7 +10,6 @@ const BookedSeats = require('../models/bookedSeats');
 
 async function init()
 {
-    //await delAll();
     await User.sync();
     await Customer.sync();
     await Manager.sync();

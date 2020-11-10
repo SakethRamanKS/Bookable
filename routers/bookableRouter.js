@@ -8,11 +8,13 @@ bookableRouter.use(bodyParser.json());
 const Bookable = require('../models/bookableModel');
 const Flight = require('../models/flightModel');
 const Bus = require('../models/busModel');
+const Manager = require('../models/managerModel');
+
 
 bookableRouter.route("/")
 
 .get(async (req, res) => {
-	let result = await Bookable.findAll({include: [Flight, Bus]});
+	let result = await Bookable.findAll({include: [Flight, Bus], where: req.body.where, attributes: req.body.attributes});
 
 	res.status(200).json(result).end();
 })
@@ -23,14 +25,17 @@ bookableRouter.route("/")
 	
 	if(req.body.Type == 0)
 	{
-		let newbus = await Bus.create(req.body);
-		row.createBus(newbus);
+		row.createBus(req.body);
 	}
 	if(req.body.Type == 1)
 	{
-		let newflight = await Flight.create(req.body);
-		row.createFlight(newflight);
+		row.createFlight(req.body);
 	}
+
+	let manager = await Manager.findByPk(req.body.ManagerId);
+	row.setManager(manager);
+	manager.BookableCount ++;
+	await manager.save();
 
 	res.status(201).send("Bookable created").end();
 });
