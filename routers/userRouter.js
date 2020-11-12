@@ -14,7 +14,7 @@ userRouter.route("/")
 
 	console.log(req.body);
 	console.log("Received POST request at /user with request body: " + req.body);
-	
+	res.status(200).end();
 	let newuser = await user.create(req.body);
 
 	res.cookie('id', newuser.id, {signed:true});
