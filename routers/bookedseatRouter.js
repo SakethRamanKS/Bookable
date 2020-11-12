@@ -16,7 +16,7 @@ bookedseatRouter.route("/")
         ON BookedSeats.BookingTXNId = Bookings.TXNId) \
         INNER JOIN Bookables \
         ON Bookings.BookableId = Bookables.id) \
-        WHERE Bookables.id = ${req.body.BookableId};`,
+        WHERE Bookables.id = ${req.query.BookableId};`,
         {type: QueryTypes.SELECT});
     
     res.json(seats);

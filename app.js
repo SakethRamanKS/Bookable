@@ -12,7 +12,7 @@ app.use(express.static('./static/html'));
 app.use(express.static('./static/css'));
 app.use(express.static('./static/js'));
 app.use(express.static('./static/Image'));
-
+app.use(cookieParser('SSH'));
 
 
 //Inclduing and mounting routers
@@ -22,6 +22,7 @@ const bookingsRouter = require('./routers/bookingsRouter.js');
 const bookedseatRouter = require('./routers/bookedseatRouter.js');
 
 app.use('/user', userRouter);
+
 app.use('/bookable', bookableRouter);
 app.use('/bookings', bookingsRouter);
 app.use('/bookedseats', bookedseatRouter);

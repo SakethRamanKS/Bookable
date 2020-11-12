@@ -16,16 +16,24 @@ userRouter.route("/")
 	console.log("Received POST request at /user with request body: " + req.body);
 	
 	let newuser = await user.create(req.body);
+
+	res.cookie('id', newuser.id, {signed:true});
 	
 	if(req.body.Type == 0)
 	{
-		newuser.createCustomer(req.body);
+		await newuser.createCustomer(req.body);
+		let cust = await newuser.getCustomer();
+		console.log(cust.toJSON());
+		res.cookie('custId', cust.id, {signed: true});
 	}
 	if(req.body.Type == 1)
 	{
-		newuser.createManager(req.body);
+		await newuser.createManager(req.body);
+		let manager = await newuser.getManager();
+		console.log(manager.toJSON());
+		res.cookie('manId', manager.id, {signed: true});
 	}
-
+	
 	res.status(201).send("User created").end();
 });
 
