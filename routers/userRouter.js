@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser')
+const bcrypt = require('bcrypt');
 
 let userRouter = express.Router();
 
@@ -9,44 +10,94 @@ let user = require('../models/userModel.js');
 let customer = require('../models/customerModel.js');
 let manager = require('../models/managerModel');
 
+userRouter.route('/:userId')
+.get(async (req, res) => {
+
+	let row = await user.findByPk(req.params.userId, {include: [customer, manager]});
+
+	
+	
+	if(row == null)
+		res.status(404).end();
+	else
+	{
+		console.log(row.toJSON());
+		res.status(200).json(row).end();
+	}
+});
+
+userRouter.route('/login')
+.post(async (req, res) => {
+
+	console.log("Login Request");
+	console.log(req.body);
+
+	let row = await user.findOne({where:{Email:req.body.Email}});
+
+	if(!row)
+	{
+		console.log("Invalid username");
+		res.status(404).end();
+	}
+
+	bcrypt.compare(req.body.Password, row.Password, async function(error, result)
+	{
+		if(result)
+		{
+			console.log("Login success");
+
+			res.cookie('id', row.id);
+
+			if(row.Type == 0)
+			{
+				let cust = await row.getCustomer();
+				res.cookie('custId', cust.id);
+			}
+
+			if(row.Type == 1)
+			{
+				let man = await row.getManager();
+				res.cookie('manId', man.id);
+			}
+
+			res.status(200).end();
+		}
+		else
+		{
+			console.log("Wrong password");
+			res.status(403).end();
+		}
+	});
+});
+
 userRouter.route("/")
 .post(async (req, res) => {
 
 	console.log(req.body);
+	console.log(req.url);
+
+
 	console.log("Received POST request at /user with request body: " + req.body);
-	res.status(200).end();
+
 	let newuser = await user.create(req.body);
 
-	res.cookie('id', newuser.id, {signed:true});
 	
 	if(req.body.Type == 0)
 	{
 		await newuser.createCustomer(req.body);
 		let cust = await newuser.getCustomer();
 		console.log(cust.toJSON());
-		res.cookie('custId', cust.id, {signed: true});
 	}
 	if(req.body.Type == 1)
 	{
 		await newuser.createManager(req.body);
 		let manager = await newuser.getManager();
 		console.log(manager.toJSON());
-		res.cookie('manId', manager.id, {signed: true});
 	}
 	
 	res.status(201).send("User created").end();
 });
 
-userRouter.route('/:userId')
-.get(async (req, res) => {
 
-	let row = await user.findByPk(req.params.userId, {include: [customer, manager]});
-	console.log(row.toJSON());
-	
-	if(row == null)
-		res.status(404).end();
-	else
-		res.status(200).json(row).end();
-});
 
 module.exports = userRouter;

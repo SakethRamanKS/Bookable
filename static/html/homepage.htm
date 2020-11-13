@@ -11,6 +11,7 @@
 
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+      <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     <script src = "homepage.js"> </script>
     <title>Homepage</title>
@@ -27,49 +28,49 @@
           <div class="page-header">Register</div><br>
           <form class="form-horizontal" id = "RegisterForm">
             <div class="form-group">
-              <label class="control-label col-sm-2" for="user_reg">Username:</label>
+              <label class="control-label col-sm-2" for="user_reg">Username</label>
                <div class="col-sm-10">
                 <input type="text" name = "Username" class="form-control" id="user_reg" placeholder="Enter Username">
               </div>
             </div>
             <br><div class="form-group">
-              <label class="control-label col-sm-2" for="email_reg" >Email:</label>
+              <label class="control-label col-sm-2" for="email_reg" >Email</label>
                <div class="col-sm-10">
                 <input type="email"  name = "Email" class="form-control" id="email_reg" placeholder="Enter email">
               </div>
             </div>
             <br><div class="form-group">
-              <label class="control-label col-sm-2" for="pwd_reg">Password:</label>
+              <label class="control-label col-sm-2" for="pwd_reg">Password</label>
               <div class="col-sm-10">
                 <input type="password" name = "Password" class="form-control" id="pwd_reg" placeholder="Enter password">
               </div>
             </div>
             <div class="form-group">
-              <label class="control-label col-sm-2" for="con_pwd" ><div >Confirm Password:</div></label>
-              <br><div class="col-sm-10">
+              <label class="control-label col-sm-2" for="con_pwd" ><div >Confirm</div></label>
+              <div class="col-sm-10">
                 <input type="password" class="form-control" id="con_pwd" placeholder="Enter password">
               </div>
             </div>
             <div class="form-group custStuff">
-              <label class="control-label col-sm-2" for="user_reg">DoB:</label>
+              <label class="control-label col-sm-2" for="cust_dob">DoB</label>
                <div class="col-sm-10">
-                <input type="date" name = "DoB" class="form-control" id="user_reg" placeholder="Enter date of birth">
+                <input type="date" name = "DoB" class="form-control" id="cust_dob" placeholder="Enter date of birth">
               </div>
             </div>
             <div class="form-group custStuff">
-              <label class="control-label col-sm-2" for="type_reg">Gender:</label>
+              <label class="control-label col-sm-2" for="cust_gender">Gender</label>
              
-                <label>Male<input type="radio" value="0" name="Gender"></label>
-                <label>Female<input type="radio" value="1" name = "Gender"></label>
+                <label>Male<input type="radio" value="0" name="Gender" checked id = "cust_gender"></label>
+                <label>Female<input type="radio" value="1" name = "Gender" id = "cust_gender"></label>
           </div>
           <div class="form-group manStuff" style = "display:none;">
-            <label class="control-label col-sm-2" for="user_reg">Travels Name:</label>
+            <label class="control-label col-sm-2" for="man_travels_name">Travels Name</label>
              <div class="col-sm-10">
-              <input type="text" name = "TravelsName" class="form-control" id="user_reg" placeholder="Enter travels name">
+              <input type="text" name = "TravelsName" class="form-control" id="man_travels_name" placeholder="Enter travels name">
             </div>
           </div>
             <div class="form-group">
-              <label class="control-label col-sm-2" for="type_reg">Type:</label>
+              <label class="control-label col-sm-2" for="type_reg">Type</label>
              
                 <label>Manager<input type="radio" value="1" name="Type" id = "manRadio" onclick = "swap(0)"></label>
                 <label>Traveller<input type="radio" value="0" name = "Type" id = "travRadio" onclick = "swap(1)" checked></label>
@@ -85,33 +86,33 @@
         </div>
         <div id="menu1" class="tab-pane fade">
           <div class="page-header">Login</div><br>
-          <form class="form-horizontal" >
+          <form class="form-horizontal" id = "LoginForm">
               <div class="form-group">
                 <label class="control-label col-sm-2" for="email">Email:</label>
                  <div class="col-sm-10">
-                  <input type="email" class="form-control" id="email" placeholder="Enter email">
+                  <input type="email" class="form-control" id="email" name = "Email" placeholder="Enter email" autocomplete="on">
                 </div>
               </div>
               <div class="form-group">
                 <label class="control-label col-sm-2" for="pwd">Password:</label>
                 <div class="col-sm-10">
-                  <input type="password" class="form-control" id="pwd" placeholder="Enter password">
+                  <input type="password" class="form-control" id="pwd" placeholder="Enter password" name = "Password">
                 </div>
               </div>
-              <div class="form-group">
-                <div class="col-sm-offset-1 col-sm-10">
-                  <button type="submit" class="w3-btn w3-ripple w3-green w3-round-large">Submit</button>
-                </div>
-              </div>
+              
           </form> 
-          
+          <div class="form-group">
+                <div class="col-sm-offset-1 col-sm-10">
+                  <button  class="w3-btn w3-ripple w3-green w3-round-large" id = "LoginButton">Submit</button>
+                </div>
+              </div>
         </div>
        </div>        
     </div> 
 
   <div class = "bg-1"><span class="image-text-medium"><br><br>Travel the world with <br><span class="image-text-big primary ">Bookable</span></span></div>
-  <div class = "bg-2"><span class="image-text-medium"><br>Fly with<br> <span class="image-text-big secondary ">Bookable</span></span><br>Click <a href = "#">here</a> to start your journey</div>
-  <div class = "bg-3"><span class="image-text"><br>Something <br> about Bus</span><br>Click <a href = "#">here</a> to start your journey</div>
+  <div class = "bg-2"><span class="image-text-medium"><br>Fly with<br> <span class="image-text-big secondary ">Bookable</span></span><br></div>
+  <div class = "bg-3"><span class="image-text-medium"><br>Book your favouite bus <br>Only on <span class="image-text-big primary ">Bookable</span> </span></div>
 
   </body>
 </html>
