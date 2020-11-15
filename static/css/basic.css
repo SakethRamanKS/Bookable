@@ -50,6 +50,7 @@ body
   color: #000000 !important; 
   border-radius: 3%;
 }
+
 nav
 {
   background-color: #ffb300 !important;
@@ -60,4 +61,11 @@ nav
 .page-header
 {
   font-size: 200% !important;
+}
+
+
+input
+{
+  color: white !important;
+  background-color: #ffb300 !important;
 }
