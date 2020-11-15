@@ -10,25 +10,6 @@ let user = require('../models/userModel.js');
 let customer = require('../models/customerModel.js');
 let manager = require('../models/managerModel');
 
-userRouter.route('/:userId')
-.get(async (req, res) => {
-	if(req.signedCookies['id'] != req.params.userId)
-	{
-		res.status(403).send('Wrong user id').end();
-		return;
-	}
-	let row = await user.findByPk(req.params.userId, {include: [customer, manager]});
-
-	
-	
-	if(row == null)
-		res.status(404).end();
-	else
-	{
-		console.log(row.toJSON());
-		res.status(200).json(row).end();
-	}
-});
 
 userRouter.route('/login')
 .post(async (req, res) => {
@@ -73,6 +54,28 @@ userRouter.route('/login')
 			res.status(403).end();
 		}
 	});
+});
+
+userRouter.route('/:userId')
+.get(async (req, res) => {
+
+	console.log("GOT REQUEST FOR USER ID");
+	if(req.signedCookies['id'] != req.params.userId)
+	{
+		res.status(403).send('Wrong user id').end();
+		return;
+	}
+	let row = await user.findByPk(req.params.userId, {include: [customer, manager]});
+
+	
+	
+	if(row == null)
+		res.status(404).end();
+	else
+	{
+		console.log(row.toJSON());
+		res.status(200).json(row).end();
+	}
 });
 
 userRouter.route("/")

@@ -1,12 +1,32 @@
+header
+{
+	font-family: 'Goldman', cursive;
+	font-size: 300%;
+	color: #64dd17;
+}
+
 .centered
 {
 	text-align: center;
 }
 
+.cityInp
+{
+	border-width: 10px;
+	border-radius: 50px;
+	padding-left: 15px;
+}	
+
+.cityInp:focus
+{
+	border-color: #ffb300;
+}
+
 #inputDiv
 {
 	padding: 1%;
-	border: 3px groove #c68400;
+	border: 3px groove #ffb300;
+	border-style: solid none solid none;
 }
 
 #searchBtn
@@ -17,14 +37,63 @@
 
 label
 {
-	color: #c68400;
+	color: #9cff57;
 }
 
-.bookableDisp
+.header
 {
-	border: 3px solid black;
+	font-size: 130%;
+	color: #9cff57;
+	text-align: center;
+	font-weight: bold;
 }
 
+.bkblBox
+{
+	padding: 1%;
+	border-width: 6px;
+	border-style: solid;
+	border-radius: 50px;
+	font-size: 130%;
+	text-align: center;
+	margin: 1%;
+}
+
+.bkblBoxBus
+{
+	color: #9cff57!important;
+	border-color: #ffb300;
+}
+
+.bkblBoxFlight
+{
+	color: #ffe54c!important;
+	border-color: #1faa00;
+}
+
+body
+{
+	background-color: #282c34!important;
+	color: #9cff57;
+}
+
+
+.bookBtnBus
+{
+	background-color: #64dd17!important;
+	color: black!important;
+}
+
+.bookBtnFlight
+{
+	background-color: #ffb300;
+	color: black!important;
+}
+
+#outerBox
+{
+
+}
 /*#define secondary #ffb300
 #define secondary-light #ffe54c
 #define secondary-dark #c68400

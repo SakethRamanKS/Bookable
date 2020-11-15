@@ -5,31 +5,58 @@ function getDivWrap(text, col)
 
 function getDOMBox(bookable)
 {
-	let div = $('<div class = "container"></div');
-	div.addClass('bookableDisp');
+
+	let div = $('<div class = "container bkblBox"></div');
 
 	if(bookable.Type)
-		div.append(getDivWrap('Flight', 3));
+	{
+		div.addClass('bkblBoxFlight');
+		div.append(getDivWrap('<span class = "fa fa-plane w3-xlarge"> </span>', 2));
+	}
 	else
-		div.append(getDivWrap('Bus', 3));
+	{
+		div.addClass('bkblBoxBus');
+		div.append(getDivWrap('<span class = "fa fa-bus w3-xlarge"> </span>', 2));
+	}
 
-	div.append(getDivWrap(bookable.Owner, 3));
-	div.append(getDivWrap(bookable.Dep, 3));
-	div.append(getDivWrap(bookable.Arr, 3));
+	div.append(getDivWrap(bookable.Owner, 2));
+	div.append(getDivWrap(bookable.Dep, 2));
+	div.append(getDivWrap(bookable.Arr, 2));
+	div.append(getDivWrap(bookable.Fare, 2));
+	
+
+	if(bookable.Type)
+		div.append(getDivWrap(`<button class = 'btn btn-primary bookBtn bookBtnFlight' onclick = 'book(${bookable.id})'>Book</button>`,2));
+	else
+		div.append(getDivWrap(`<button class = 'btn btn-primary bookBtn bookBtnBus' onclick = 'book(${bookable.id})'>Book</button>`,2));
 
 	$('#outerBox').append(div);
 }
 
+function book(bookableId)
+{
+	alert(`You wanna book bookable ${bookableId}`);
+}
 
 $(document).ready(function() {
 
 	$('#searchBtn').click(function ()
 	{
+		$('#outerBox').empty();
+
+		let headerDiv = $('<div class = "container header"> </div>');
+		headerDiv.append("<div class = 'col-md-2'> </div>");
+		headerDiv.append("<div class = 'col-md-2'> Travels</div>");
+		headerDiv.append("<div class = 'col-md-2'> Departure </div>");
+		headerDiv.append("<div class = 'col-md-2'> Arrival</div>");
+		headerDiv.append("<div class = 'col-md-2'> Fare</div>");
+
 		let where = {
-			src: $('#src').val(),
-			dest: $('#dest').val()
+		src: $('#src').val(),
+		dest: $('#dest').val()
 		}
 		console.log(where);
+		$('#outerBox').append(headerDiv);
 		$.get('/bookable', {where: where}, function(result)
 		{
 			console.log(result);
