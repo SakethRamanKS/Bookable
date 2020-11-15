@@ -12,7 +12,11 @@ let manager = require('../models/managerModel');
 
 userRouter.route('/:userId')
 .get(async (req, res) => {
-
+	if(req.signedCookies['id'] != req.params.userId)
+	{
+		res.status(403).send('Wrong user id').end();
+		return;
+	}
 	let row = await user.findByPk(req.params.userId, {include: [customer, manager]});
 
 	
@@ -38,6 +42,7 @@ userRouter.route('/login')
 	{
 		console.log("Invalid username");
 		res.status(404).end();
+		return;
 	}
 
 	bcrypt.compare(req.body.Password, row.Password, async function(error, result)
@@ -46,18 +51,18 @@ userRouter.route('/login')
 		{
 			console.log("Login success");
 
-			res.cookie('id', row.id);
+			res.cookie('id', row.id, {signed: true});
 
 			if(row.Type == 0)
 			{
 				let cust = await row.getCustomer();
-				res.cookie('custId', cust.id);
+				res.cookie('custId', cust.id, {signed:true});
 			}
 
 			if(row.Type == 1)
 			{
 				let man = await row.getManager();
-				res.cookie('manId', man.id);
+				res.cookie('manId', man.id, {signed: true});
 			}
 
 			res.status(200).end();

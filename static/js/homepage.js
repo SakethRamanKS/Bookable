@@ -37,11 +37,11 @@ $(document).ready(function()
 			return;
 		}
 
-		// $.post("/user", $("#RegisterForm").serialize(), function(data)
-		// {
-		// 	console.log("Recieved POST data: " + data);
-		// 	swal("Success", "You have successfully created a Bookable account!\nPlease login to continue.", "success");
-		// });
+		$.post("/user", $("#RegisterForm").serialize(), function(data)
+		{
+			console.log("Recieved POST data: " + data);
+			swal("Success", "You have successfully created a Bookable account!\nPlease login to continue.", "success");
+		});
 	});
 
 	$("#LoginButton").click(function()
@@ -60,12 +60,14 @@ $(document).ready(function()
 			swal("Missing data", "All input fields are mandatory", "warning");
 			return;
 		}
-
 		console.log("LOGIN");
 		$.post("/user/login", $("#LoginForm").serialize(), function(data)
 		{
 			console.log("Recieved POST data: " + data);
-			swal("Success", "Login successful", "success");
+			swal("Success", "Login successful", "success")
+				.then((value) => {
+					window.location.replace('./book.htm');
+				});
 		});
 	});
 

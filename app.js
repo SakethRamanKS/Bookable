@@ -10,20 +10,28 @@ const path = require('path');
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(cookieParser('SSH'));
 
+app.get('/', (req, res) => 
+{
+	res.redirect('./homepage.htm');
+});
+
 function auth(req, res, next)
 {
 	// console.log("Logging cookies");
-	// console.log(req.cookies);
-	if(!req.cookies['id'])
+	// console.log(req.signedCookies);
+	if(!req.signedCookies['id'])
 	{
 		if(req.url.startsWith('/homepage') || req.url == '/basic.css' || req.url == '/' || req.url.endsWith("jpg") || req.url.startsWith('/user'))
 			next();
 		else
+		{
+			console.log("USER BLOCKED");
 			res.status(404).sendFile(path.join(__dirname, 'static', 'html', '404.htm'));
+		}
 	}	
 	else
 	{
-		// console.log("USER AUTHENTICATED");
+		console.log("USER AUTHENTICATED");
 		next();
 	}
 }
