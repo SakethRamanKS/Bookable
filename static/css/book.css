@@ -1,0 +1,33 @@
+.centered
+{
+	text-align: center;
+}
+
+#inputDiv
+{
+	padding: 1%;
+	border: 3px groove #c68400;
+}
+
+#searchBtn
+{
+	margin-top: 15px;
+	border: 3px solid #1faa00;
+}
+
+label
+{
+	color: #c68400;
+}
+
+.bookableDisp
+{
+	border: 3px solid black;
+}
+
+/*#define secondary #ffb300
+#define secondary-light #ffe54c
+#define secondary-dark #c68400
+#define primary #64dd17
+#define primary-light #9cff57
+#define primary-dark #1faa00*/
