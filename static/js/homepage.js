@@ -1,5 +1,12 @@
 $(document).ready(function()
 {
+	//clear all cookies
+	$.removeCookie('id', {path: '/'});
+	$.removeCookie('custId', {path: '/'});
+	$.removeCookie('manId', {path: '/'});
+
+	console.log('COOKIES CLEARED');
+
 	$(document).ajaxError(function(event, jqXHR, settings, thrownError)
 	{
 		//invalid username
@@ -66,7 +73,13 @@ $(document).ready(function()
 			console.log("Recieved POST data: " + data);
 			swal("Success", "Login successful", "success")
 				.then((value) => {
-					window.location.replace('./book.htm');
+					console.log("Cookie value:");
+					console.log($.cookie('custId'))
+					if($.cookie('custId') == null)
+						window.location.replace('./manager.htm');
+					else
+						window.location.replace('./book.htm');
+
 				});
 		});
 	});

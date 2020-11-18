@@ -25,13 +25,13 @@ function auth(req, res, next)
 			next();
 		else
 		{
-			console.log("USER BLOCKED");
+			// console.log("USER BLOCKED");
 			res.status(404).sendFile(path.join(__dirname, 'static', 'html', '404.htm'));
 		}
 	}	
 	else
 	{
-		console.log("USER AUTHENTICATED");
+		// console.log("USER AUTHENTICATED");
 		next();
 	}
 }

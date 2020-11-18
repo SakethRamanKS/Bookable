@@ -7,7 +7,6 @@ const Flight = require('./flightModel');
 const Bookable = sequelize.define('Bookable', {
     TotSeat: DataTypes.INTEGER,
     Type: DataTypes.BOOLEAN,
-    Owner: DataTypes.STRING,
     Src: DataTypes.STRING,
     Dest: DataTypes.STRING,
     Dep: DataTypes.TIME,

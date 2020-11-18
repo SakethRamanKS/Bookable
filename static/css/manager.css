@@ -1,0 +1,38 @@
+body
+{
+	background-color: #282c34!important;
+	color: white;
+}
+
+header
+{
+	font-family: 'Goldman', cursive;
+	font-size: 300%;
+	color: #64dd17;
+}
+
+.centered
+{
+	text-align: center;
+}
+
+.inp-bus
+{
+	border-width: 5px;
+	border-radius: 50px;
+	padding-left: 15px;
+	border-color: #64dd17;
+}
+
+label
+{
+	color: #ffb300;
+	font-size: 130%;
+}
+
+/*#define secondary #ffb300
+#define secondary-light #ffe54c
+#define secondary-dark #c68400
+#define primary #64dd17
+#define primary-light #9cff57
+#define primary-dark #1faa00*/

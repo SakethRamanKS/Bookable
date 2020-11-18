@@ -19,7 +19,7 @@ function getDOMBox(bookable)
 		div.append(getDivWrap('<span class = "fa fa-bus w3-xlarge"> </span>', 2));
 	}
 
-	div.append(getDivWrap(bookable.Owner, 2));
+	div.append(getDivWrap(bookable.Manager.TravelName, 2));
 	div.append(getDivWrap(bookable.Dep, 2));
 	div.append(getDivWrap(bookable.Arr, 2));
 	div.append(getDivWrap(bookable.Fare, 2));

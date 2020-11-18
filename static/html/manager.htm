@@ -1,0 +1,152 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+      <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Goldman:wght@700&display=swap" rel="stylesheet">
+    <link href = "manager.css" rel = "stylesheet" type = "text/css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <script src = "manager.js"> </script>
+
+    <title> Manager - Bookable </title>
+  </head>
+
+    <body class="w3-animate-opacity">
+
+    <header class = 'centered'>
+       Bookable
+    </header>
+
+    <div id = 'outermost' class = 'container'>
+
+        <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <a class="nav-item nav-link active" id="nav-bus-tab" data-toggle="tab" href="#nav-bus" role="tab">Bus</a>
+            <a class="nav-item nav-link" id="nav-flight-tab" data-toggle="tab" href="#nav-flight" role="tab" >Flight</a>
+            </div>
+        </nav>
+
+        <div class="tab-content" id="nav-tabContent">
+
+            <!-- Form for bus -->
+            <div class="tab-pane fade show active" id="nav-bus" role="tabpanel" >
+
+                <form class="form-horizontal" id = "BusForm">
+                    <br><br>
+
+                    <div class = "form-row">
+                        <div class="col">    
+                            <label class="control-label " for="bus_number">Bus Number</label>
+                            <div class="col-sm-10">
+                                <input type="text" name = "BusNumber" class="inp-bus" id="bus_number" placeholder="Enter Bus Number">
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <label class="control-label " for="seat_count_bus">Number of Seats</label>
+                            <div class="col-sm-10">
+                                <input type="number" name = "TotSeat" class="inp-bus" id="seat_count_bus" placeholder="Number of seats">
+                            </div>
+                        </div>
+                    </div>
+
+                    <br><br>
+                    <div class = "form-row">
+                        <div class="col">
+                            <label class="control-label " for="src_bus">Source</label>
+                            <div class="col-sm-10">
+                                <input type="text" name = "Src" class="inp-bus" id="src_bus" placeholder="Source">
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <label class="control-label " for="dest_bus">Destination</label>
+                            <div class="col-sm-10">
+                                <input type="text" name = "Dest" class="inp-bus" id="dest_bus" placeholder="Destination">
+                            </div>
+                        </div>
+                    </div>
+
+                     <br><br>
+                    <div class = "form-row">
+                        <div class="col">
+                            <label class="control-label " for="dep_bus">Departure</label>
+                            <div class="col-sm-10">
+                                <input type="time" name = "Dep" class="inp-bus" id="dep_bus" placeholder="Departure">
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <label class="control-label " for="arr_bus">Arrival</label>
+                            <div class="col-sm-10">
+                                <input type="time" name = "Arr" class="inp-bus" id="arr_bus" placeholder="Arrival">
+                            </div>
+                        </div>
+                    </div>
+                    <br><br>
+                    <div class = "form-row">
+                        <div class="col">
+                            <label>Seat Type</label> <br><br>
+                            <div class="col-sm-10">
+                                <input type="radio" name = "SeatType" class="inp-bus" value = "0" checked>
+                                Semi - Sleeper <br>
+                                <input type="radio" name = "SeatType" class="inp-bus" value = "1">
+                                Sleeper  
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <label>AC Type</label> <br><br>
+                            <div class="col-sm-10">
+                                <input type="radio" name = "AcType" class="inp-bus" value = "0" checked>
+                                Non - AC <br>
+                                <input type="radio" name = "AcType" class="inp-bus" value = "1">
+                                AC 
+                            </div>
+                        </div>
+                    </div>
+                    <br><br>
+
+                    <div class = "form-row">
+                        <div class="col">
+                            <label class="control-label " for="fare_bus"> Fare (per person) </label>
+                            <div class="col-sm-10">
+                                <input type="number" name = "Fare" class="inp-bus" id="fare_bus" placeholder="Fare">
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+                 <br><br>
+                 <!-- Submit button -->
+                <div class="form-group">
+                  <div class="col-sm-offset-1 col-sm-10">
+                    <button class="w3-btn w3-ripple w3-green w3-round-large" id = "BusSubmit">Submit</button>
+                  </div>
+                </div>  
+
+            </div>
+
+            <!-- Form for flight -->
+            <div class="tab-pane fade" id="nav-flight" role="tabpanel" > Flight Stuff </div>
+
+        </div>
+
+
+    </div>
+
+  </body>
+
+</html>
