@@ -107,6 +107,20 @@ body
 	color: black!important;
 }
 
+/*To override the bootstrap css defaults*/
+.bookBtnBus:hover
+{
+	background-color: #64dd17!important;
+	color: black!important;
+}
+
+.bookBtnFlight:hover
+{
+	background-color: #ffb300;
+	color: black!important;
+}
+
+
 #outerBox
 {
 
