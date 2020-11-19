@@ -26,16 +26,20 @@ function getDOMBox(bookable)
 	
 
 	if(bookable.Type)
-		div.append(getDivWrap(`<button class = 'btn btn-primary bookBtn bookBtnFlight' onclick = 'book(${bookable.id})'>Book</button>`,2));
+		div.append(getDivWrap(`<button class = 'btn btn-primary bookBtn bookBtnFlight' onclick = 'book(${bookable})'>Book</button>`,2));
 	else
-		div.append(getDivWrap(`<button class = 'btn btn-primary bookBtn bookBtnBus' onclick = 'book(${bookable.id})'>Book</button>`,2));
+		div.append(getDivWrap(`<button class = 'btn btn-primary bookBtn bookBtnBus' onclick = 'book(${bookable})'>Book</button>`,2));
 
 	$('#outerBox').append(div);
 }
 
-function book(bookableId)
+function book(bookable)
 {
-	alert(`You wanna book bookable ${bookableId}`);
+	alert(`You wanna book bookable ${bookable.Id}`);
+
+	var bigDiv = $('#displayBox');
+	bigDiv.append('<div class = "page-header"> Book your seats here</div>');
+	var table = $("<table></table>");
 }
 
 $(document).ready(function() {
