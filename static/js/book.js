@@ -55,17 +55,28 @@ $(document).ready(function() {
 		headerDiv.append("<div class = 'col-md-2'> Arrival</div>");
 		headerDiv.append("<div class = 'col-md-2'> Fare</div>");
 
-		let where = {
-		src: $('#src').val(),
-		dest: $('#dest').val()
+		let where = 
+		{
+			src: $('#src').val(),
+			dest: $('#dest').val()
 		}
-		console.log(where);
-		$('#outerBox').append(headerDiv);
+		
+
 		$.get('/bookable', {where: where}, function(result)
 		{
-			console.log(result);
-			for(bookable of result)
+			if(result.length!=0)
+			{
+				console.log(result);
+
+				$('#outerBox').append(headerDiv);
+
+				for(bookable of result)
 				getDOMBox(bookable);
+			}
+			else
+			{
+				swal('No Results Found', 'We could not find any results for the given source and destination', 'warning');
+			}
 		});
 	});
 });
