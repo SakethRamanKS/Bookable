@@ -44,6 +44,12 @@ $(document).ready(function()
 			return;
 		}
 
+		if($("#pwd_reg").val() != $('#con_pwd').val())
+		{
+			swal("The Passwords dont match", "Please make sure that the passwords are same", "warning");
+			return;
+		}
+
 		$.post("/user", $("#RegisterForm").serialize(), function(data)
 		{
 			console.log("Recieved POST data: " + data);
