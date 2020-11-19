@@ -56,7 +56,7 @@ label
 	border-radius: 50px;
 	font-size: 130%;
 	text-align: center;
-	margin: 1%;
+	margin: 2%;
 }
 
 .bkblBoxBus
@@ -65,10 +65,21 @@ label
 	border-color: #ffb300;
 }
 
+.bkblBoxBus:hover
+{
+	box-shadow: 5px 5px gray;
+}
+
+.bkblBoxFlight:hover
+{
+	box-shadow: 5px 5px gray;
+}
+
 .bkblBoxFlight
 {
-	color: #ffe54c!important;
-	border-color: #1faa00;
+	color: #ffb300!important;
+	border-color: #9cff57;
+	font-weight: bold;
 }
 
 body

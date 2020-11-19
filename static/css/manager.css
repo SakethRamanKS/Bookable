@@ -24,10 +24,52 @@ header
 	border-color: #64dd17;
 }
 
-label
+.inp-flight
+{
+	border-width: 5px;
+	border-radius: 50px;
+	padding-left: 15px;
+	border-color: #ffb300;
+}
+
+.bus-label
 {
 	color: #ffb300;
 	font-size: 130%;
+}
+
+.flight-label
+{
+	color: #64dd17;
+	font-size: 130%;
+}
+
+#nav-tabContent
+{
+	border: 0.1px dotted white!important;
+	padding-left: 30px;
+}
+
+#nav-bus-tab:hover
+{
+	color: #ffb300;
+}
+
+#nav-flight-tab:hover
+{
+	color: #64dd17;
+}
+
+#BusSubmit
+{
+	background-color: #ffb300!important;
+	color: black!important;
+}
+
+#FlightSubmit
+{
+	background-color: #64dd17!important;
+	color: black!important;
 }
 
 /*#define secondary #ffb300

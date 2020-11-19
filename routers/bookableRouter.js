@@ -30,6 +30,11 @@ bookableRouter.route("/")
 .post (async (req, res) => {
 
 	console.log('NEW BOOKABLE REQUEST');
+	if(!req.signedCookies['manId'])
+	{
+		res.status(403).send("Forbidden").end();
+		return;
+	}
 	req.body.ManagerId = req.signedCookies['manId'];
 	console.log(req.body);
 	let row;
