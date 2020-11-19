@@ -5,6 +5,12 @@ header
 	color: #64dd17;
 }
 
+header > a:hover
+{
+	color: #ffe54c;
+	text-decoration: none;
+}
+
 .centered
 {
 	text-align: center;
