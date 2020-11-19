@@ -26,6 +26,8 @@ header > a:hover
 .cityInp:focus
 {
 	border-color: #ffb300;
+	background-color: white !important;
+	color: black !important;
 }
 
 #inputDiv
