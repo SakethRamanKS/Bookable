@@ -1,3 +1,6 @@
+// A model to define a User
+// A user can be a customer or a maanger
+
 const {DataTypes } = require('sequelize');
 let bcrypt = require('bcrypt');
 
@@ -25,6 +28,8 @@ const User = sequelize.define('User', {
 		allowNull: false
 	}
 });
+
+// Adding a beforeCreate hook to the User model that hashes the password before saving it to the database
 
 User.addHook('beforeCreate', async (user) => {
 	user.Password = await bcrypt.hash(user.Password, 10);

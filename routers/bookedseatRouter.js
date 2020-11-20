@@ -9,10 +9,10 @@ let bookedseatRouter = express.Router();
 bookedseatRouter.use(bodyParser.json());
 
 bookedseatRouter.route("/")
+// Queries the database for all the seats of a particular bookable that are already booked
 .get(async (req, res) => 
 {
-	console.log('BOOKED SEAT REQUEST');
-	console.log(req.query);
+    // A raw query is executed in order to fetch the seats
     let seats = await sequelize.query(`SELECT DISTINCT SeatNum FROM ((BookedSeats \
         INNER JOIN Bookings \
         ON BookedSeats.BookingTXNId = Bookings.TXNId) \

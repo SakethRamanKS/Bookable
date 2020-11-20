@@ -1,3 +1,8 @@
+/*
+The file where the connection to the database is made
+The connection details are imported from the .env file and the connection object is exported
+*/
+
 const { Sequelize } = require ('sequelize');
 const dbConfig = require('../config');
 

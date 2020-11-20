@@ -351,5 +351,5 @@ function formatDate(input)
 	result += date.getDate()+"/";
 	result += (date.getMonth()+1)+"/";
 	result += date.getFullYear();
-	return result;s
+	return result;
 }
