@@ -17,6 +17,13 @@ header > a:hover
 	text-decoration: none;
 }
 
+#profileButton
+{
+	float: right;
+	margin-right: 10px;
+	margin-top: 10px;
+}
+
 .centered
 {
 	text-align: center;

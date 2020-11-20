@@ -17,6 +17,32 @@ header > a:visited
 	text-decoration: none;
 }
 
+.busBookingHeading
+{
+	font-family: 'Goldman', cursive;
+	font-size: 300%;
+	color: #ffb300;
+}
+
+.flightBookingHeading
+{
+	font-family: 'Goldman', cursive;
+	font-size: 300%;
+	color: #64dd17;
+}
+
+#profileButton
+{
+	float: right;
+	margin-right: 10px;
+	margin-top: 10px;
+}
+
+.big
+{
+    width:10%;
+}
+
 .centered
 {
 	text-align: center;
@@ -134,14 +160,37 @@ body
 
 }
 
-#bookable_display
+/*#displayBox
 {
     background-color: #e71d36;
     border-radius: 2%;
     width: 75%;
     margin-bottom: 5%;
     padding-bottom: 5%;
+}*/
+
+
+#detailRow
+{
+	font-size: 130%;
+	color: white;
 }
+
+#busSubmitButton
+{
+	background-color: #ffb300!important;
+}
+
+#flightSubmitButton
+{
+	background-color: #64dd17!important;
+}
+
+#selDiv
+{
+	color: white;
+}
+
 /*#define secondary #ffb300
 #define secondary-light #ffe54c
 #define secondary-dark #c68400

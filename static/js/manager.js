@@ -29,4 +29,40 @@ $(document).ready(function()
 			swal("Success", "Your flight has been created successully", "success");
 		});
 	});
+
+	$("#profileButton").click(function()
+	{
+		swal('Loading', 'Your profile is loading', 'info', {buttons: false});
+		$.get('/user', function(data)
+		{
+			swal.close();
+			let createDate = new Date(data.createdAt);
+			swal({
+				title: "Manager Profile",
+				text: `Username: ${data.Username}\nEmail: ${data.Email}\nOrganisation: ${data.Manager.TravelName}\nNumber of Bookables: ${data.Manager.BookableCount}\n\nThis Account was created on ${formatDate(data.createdAt)} at ${createDate.getHours()}:${createDate.getMinutes()}`,
+				buttons:{
+					ok: "Ok",
+					logout: {
+						text: "Logout",
+						value: "logout"
+					},
+				}
+
+			}).then ((value) =>
+			{
+				if(value == "logout")
+					window.location.replace('./');
+			});
+		});
+	});
 });
+
+function formatDate(input)
+{
+	let date = new Date(input);
+	let result = "";
+	result += date.getDate()+"/";
+	result += (date.getMonth()+1)+"/";
+	result += date.getFullYear();
+	return result;s
+}

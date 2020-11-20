@@ -11,6 +11,8 @@ bookedseatRouter.use(bodyParser.json());
 bookedseatRouter.route("/")
 .get(async (req, res) => 
 {
+	console.log('BOOKED SEAT REQUEST');
+	console.log(req.query);
     let seats = await sequelize.query(`SELECT DISTINCT SeatNum FROM ((BookedSeats \
         INNER JOIN Bookings \
         ON BookedSeats.BookingTXNId = Bookings.TXNId) \

@@ -56,31 +56,9 @@ userRouter.route('/login')
 	});
 });
 
-userRouter.route('/:userId')
-.get(async (req, res) => {
-
-	console.log("GOT REQUEST FOR USER ID");
-	if(req.signedCookies['id'] != req.params.userId)
-	{
-		res.status(403).send('Wrong user id').end();
-		return;
-	}
-	let row = await user.findByPk(req.params.userId, {include: [customer, manager]});
-
-	
-	
-	if(row == null)
-		res.status(404).end();
-	else
-	{
-		console.log(row.toJSON());
-		res.status(200).json(row).end();
-	}
-});
-
 userRouter.route("/")
-.post(async (req, res) => {
-
+.post(async (req, res) => 
+{
 	console.log(req.body);
 	console.log(req.url);
 
@@ -104,6 +82,20 @@ userRouter.route("/")
 	}
 	
 	res.status(201).send("User created").end();
+})
+.get(async (req, res) =>
+{
+	console.log("GOT REQUEST FOR USER ID");
+
+	let row = await user.findByPk(req.signedCookies['id'], {include: [customer, manager]});
+
+	if(row == null)
+		res.status(404).end();
+	else
+	{
+		// console.log(row.toJSON());
+		res.status(200).json(row).end();
+	}
 });
 
 

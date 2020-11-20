@@ -14,7 +14,6 @@ const Manager = require('../models/managerModel');
 bookableRouter.route("/")
 
 .get(async (req, res) => {
-	console.log("LOGGING QUERY");
 	console.log(req.query.where);
 	let result = await Bookable.findAll({include: [Flight, Bus, Manager], where: req.query.where, attributes: req.body.attributes});
 	if(!result)
@@ -22,8 +21,8 @@ bookableRouter.route("/")
 		console.log("EMPTY RESULT");
 		res.status(200).end();
 	}
-	console.log("RESULT: ");
-	console.log(JSON.stringify(result));
+	// console.log("RESULT: ");
+	// console.log(JSON.stringify(result));
 	res.status(200).json(result).end();
 })
 
