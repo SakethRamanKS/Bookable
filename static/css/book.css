@@ -11,6 +11,12 @@ header > a:hover
 	text-decoration: none;
 }
 
+header > a:visited
+{
+	color: #ffe54c;
+	text-decoration: none;
+}
+
 .centered
 {
 	text-align: center;
@@ -112,6 +118,15 @@ body
 #outerBox
 {
 
+}
+
+#bookable_display
+{
+    background-color: #e71d36;
+    border-radius: 2%;
+    width: 75%;
+    margin-bottom: 5%;
+    padding-bottom: 5%;
 }
 /*#define secondary #ffb300
 #define secondary-light #ffe54c
