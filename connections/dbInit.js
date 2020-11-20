@@ -1,3 +1,9 @@
+/*
+The file where the models are initialised
+All the models in the models folder and imported and synced with the database
+*/
+
+
 var User = require('../models/userModel');
 var Customer = require('../models/customerModel');
 var Manager = require('../models/managerModel');
@@ -18,21 +24,6 @@ async function init()
     await Flight.sync();
     await Booking.sync();
     await BookedSeats.sync();
-}
-
-async function delAll()
-{   
-    await BookedSeats.drop();
-    await Booking.drop();
-
-    await Bus.drop();
-    await Flight.drop();
-    await Bookable.drop();
-
-    await Customer.drop();
-    await Manager.drop();
-    await User.drop();
-    
 }
 
 init();

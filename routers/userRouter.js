@@ -12,13 +12,12 @@ let manager = require('../models/managerModel');
 
 
 userRouter.route('/login')
+// Endpoint for user login
 .post(async (req, res) => {
-
-	console.log("Login Request");
-	console.log(req.body);
 
 	let row = await user.findOne({where:{Email:req.body.Email}});
 
+	// Checking if the email is valid
 	if(!row)
 	{
 		console.log("Invalid username");
@@ -26,6 +25,7 @@ userRouter.route('/login')
 		return;
 	}
 
+	// Checking if the password is valid
 	bcrypt.compare(req.body.Password, row.Password, async function(error, result)
 	{
 		if(result)
@@ -57,17 +57,19 @@ userRouter.route('/login')
 });
 
 userRouter.route("/")
+// Creating a new user - Registration
 .post(async (req, res) => 
 {
-	console.log(req.body);
-	console.log(req.url);
+	try 
+	{
+		let newuser = await user.create(req.body);
+	}
+	catch(e)
+	{
+		res.status(500).send(e.toString()).end();
+	}
 
-
-	console.log("Received POST request at /user with request body: " + req.body);
-
-	let newuser = await user.create(req.body);
-
-	
+	// Based on the type of the user, a Customer profile or Manager profile is created accordingly
 	if(req.body.Type == 0)
 	{
 		await newuser.createCustomer(req.body);
@@ -83,19 +85,15 @@ userRouter.route("/")
 	
 	res.status(201).send("User created").end();
 })
+// Retrieving the details of a user profile
 .get(async (req, res) =>
 {
-	console.log("GOT REQUEST FOR USER ID");
-
 	let row = await user.findByPk(req.signedCookies['id'], {include: [customer, manager]});
 
 	if(row == null)
 		res.status(404).end();
 	else
-	{
-		// console.log(row.toJSON());
 		res.status(200).json(row).end();
-	}
 });
 
 

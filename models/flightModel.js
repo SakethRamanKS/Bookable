@@ -1,3 +1,5 @@
+// A model to define a flight
+
 const {DataTypes} = require('sequelize');
 let sequelize = require('../connections/dbConnection.js');
 

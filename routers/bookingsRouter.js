@@ -12,9 +12,17 @@ bookingsRouter.use(bodyParser.json());
 bookingsRouter.route("/")
 
 .post(async (req, res) => {
+	// Creating a new Booking Transaction - indicates that a traveller wishes to reserve seats on a bus/flight
+
+	if(!req.signedCookies['custId'])
+	{
+		res.status(403).end();
+		return;
+	}
 
 	req.body.CustomerId = req.signedCookies['custId'];
 
+	// Checking if the particular customer has already reserved seats on this bookable
 	let alreadyBooked = await Bookings.findOne({where: {BookableId: req.body.BookableId, CustomerId: req.body.CustomerId}});
 
 	if(alreadyBooked)
@@ -23,6 +31,7 @@ bookingsRouter.route("/")
 		return;
 	}
 
+	// Verifying that the requested seats are still available
     let bookedSeats = await sequelize.query(`SELECT DISTINCT SeatNum FROM ((BookedSeats \
     INNER JOIN Bookings \
     ON BookedSeats.BookingTXNId = Bookings.TXNId) \
@@ -45,7 +54,7 @@ bookingsRouter.route("/")
 		}
 	}
    	
-
+	// If the seats are free, they are reserved
     let newBooking = await Bookings.create(req.body);
     for(seat of req.body.Seats)
     {

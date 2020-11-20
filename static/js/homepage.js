@@ -12,8 +12,10 @@ $(document).ready(function()
 		//invalid username
 		if(jqXHR.status === 404)
 			swal("Invalid username", "The email you have entered is invalid.\nPlease create a new account or enter a valid username.", "error");
-		if(jqXHR.status == 403)
+		else if(jqXHR.status == 403)
 			swal("Incorrect password", "The password you have entered is incorrect", "error");
+		else
+			alert(jqXHR.responseText);
 	});
 	//When the register button is clicked:
 	$("#RegisterButton").click(function()

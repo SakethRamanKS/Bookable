@@ -1,3 +1,5 @@
+// Model to define a bus
+
 const {DataTypes} = require('sequelize');
 let sequelize = require('../connections/dbConnection.js');
 
