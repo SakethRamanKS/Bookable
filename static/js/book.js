@@ -192,7 +192,36 @@ function busBook(id, totseat, sleepertype, actype, busNum)
         actype = actype? "AC" : "Non - AC";
         sleepertype = sleepertype? "Sleeper" : "Semi - Sleeper";
 
-        let detailRow = $(`<div class = 'row' id = 'detailRow'> Bus Number: ${busNum} <br><br> Bus Type: ${actype + " " + sleepertype} </div>`);
+		let detailRow = $(`<div class = 'row' id = 'detailRow'> Bus Number: ${busNum} <br><br> Bus Type: ${actype + " " + sleepertype} </div>`);
+		
+
+		detailRow.append("<br><br><br>");
+
+		var head_1 = $("<p></p>");
+		var img_1 = $("<img>");
+		img_1.attr("src", "seat.png");
+		head_1.append(img_1);
+		var p_1 = $("<p></p>").text("Available Seats");
+		head_1.append(p_1);
+		detailRow.append(head_1);
+
+		var head_2 = $("<p></p>");
+		var img_2 = $("<img>");
+		img_2.attr("src", "seat_booked.png");
+		head_2.append(img_2);
+		var p_2 = $("<p></p>").text("Booked Seats");
+		head_2.append(p_2);
+		detailRow.append(head_2);
+
+		var head_3 = $("<p></p>");
+		var img_3 = $("<img>");
+		img_3.attr("src", "seat_selected.png");
+		head_3.append(img_3);
+		var p_3 = $("<p></p>").text("Selected Seats");
+		head_3.append(p_3);
+		detailRow.append(head_3);
+		detailRow.append("<hr>");
+		detailRow.append("<h3>Driver here</h3>");
 
         $('#displayBox').append(detailRow);
         $('#displayBox').append("<br><br>");
@@ -241,7 +270,35 @@ function flightBook(id, totseat, SrcAirport, DestAirport, flightNum)
        	detailRow.append(destDiv);
         detailRow.append(getDivWrap("", 3));
 
-        $('#displayBox').append(detailRow);
+		detailRow.append("<br><br><br>");
+
+		var head_1 = $("<p></p>");
+		var img_1 = $("<img>");
+		img_1.attr("src", "seat.png");
+		head_1.append(img_1);
+		var p_1 = $("<p></p>").text("Available Seats");
+		head_1.append(p_1);
+		detailRow.append(head_1);
+
+		var head_2 = $("<p></p>");
+		var img_2 = $("<img>");
+		img_2.attr("src", "seat_booked.png");
+		head_2.append(img_2);
+		var p_2 = $("<p></p>").text("Booked Seats");
+		head_2.append(p_2);
+		detailRow.append(head_2);
+
+		var head_3 = $("<p></p>");
+		var img_3 = $("<img>");
+		img_3.attr("src", "seat_selected.png");
+		head_3.append(img_3);
+		var p_3 = $("<p></p>").text("Selected Seats");
+		head_3.append(p_3);
+		detailRow.append(head_3);
+		detailRow.append("<hr>");
+		detailRow.append("<h3>Pilot here</h3>");
+
+		$('#displayBox').append(detailRow);
         $('#displayBox').append("<br><br>");
 
         $('#displayBox').append(getSeatTable(totseat, 6, data));
@@ -351,5 +408,5 @@ function formatDate(input)
 	result += date.getDate()+"/";
 	result += (date.getMonth()+1)+"/";
 	result += date.getFullYear();
-	return result;s
+	return result;
 }
