@@ -60,9 +60,10 @@ userRouter.route("/")
 // Creating a new user - Registration
 .post(async (req, res) => 
 {
+	let newuser;
 	try 
 	{
-		let newuser = await user.create(req.body);
+		newuser = await user.create(req.body); // INSERT INTO User
 	}
 	catch(e)
 	{
@@ -72,13 +73,13 @@ userRouter.route("/")
 	// Based on the type of the user, a Customer profile or Manager profile is created accordingly
 	if(req.body.Type == 0)
 	{
-		await newuser.createCustomer(req.body);
+		await newuser.createCustomer(req.body); // INSERT INTO Customer
 		let cust = await newuser.getCustomer();
 		console.log(cust.toJSON());
 	}
 	if(req.body.Type == 1)
 	{
-		await newuser.createManager(req.body);
+		await newuser.createManager(req.body); // INSERT INTO Manager
 		let manager = await newuser.getManager();
 		console.log(manager.toJSON());
 	}
@@ -88,7 +89,7 @@ userRouter.route("/")
 // Retrieving the details of a user profile
 .get(async (req, res) =>
 {
-	let row = await user.findByPk(req.signedCookies['id'], {include: [customer, manager]});
+	let row = await user.findByPk(req.signedCookies['id'], {include: [customer, manager]}); // SELECT FROM User NATURAL JOIN Customer NATURAL JOIN Manager
 
 	if(row == null)
 		res.status(404).end();

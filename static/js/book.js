@@ -167,7 +167,10 @@ function bookSubmit(bookableId)
 	$.post('/bookings', {BookableId: bookableId, Seats: selected}, function(data)
 	{
 		swal.close();
-		swal("Success!", "You have successfully booked a ticket on Bookable!", "success");
+		swal("Success!", "You have successfully booked a ticket on Bookable!", "success", {buttons: "Logout"})
+		.then((value) => {
+			window.location.replace('./');
+		});
 	});
 }
 

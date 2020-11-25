@@ -16,7 +16,8 @@ const Manager = require('../models/managerModel');
 bookableRouter.route("/")
 // Fetches all the Bookables from the database and returns it
 .get(async (req, res) => {
-	console.log(req.query.where);
+
+	// SELECT * FROM Bookable NATURAL JOIN Bus NATURAL JOIN Flight NATURAL JOIN Manager
 	let result = await Bookable.findAll({include: [Flight, Bus, Manager], where: req.query.where, attributes: req.body.attributes});
 	if(!result)
 	{
@@ -37,7 +38,7 @@ bookableRouter.route("/")
 	let row;
 	try
 	{
-		row = await Bookable.create(req.body);
+		row = await Bookable.create(req.body); // INSERT INTO Bookable
 	}
 	catch(e)
 	{
@@ -47,11 +48,11 @@ bookableRouter.route("/")
 	// According to the type of the newly created Bookable, a Bus or Flight is also added accordingly
 	if(req.body.Type == 0)
 	{
-		await row.createBus(req.body);
+		await row.createBus(req.body); // INSERT INTO Bus
 	}
 	if(req.body.Type == 1)
 	{
-		await row.createFlight(req.body);
+		await row.createFlight(req.body); // INSERT INTO Flight
 	}
 
 	// The details of the Manager who created the Bookable are fetched and the bookableCount is incremented

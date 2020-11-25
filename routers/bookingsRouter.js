@@ -23,6 +23,8 @@ bookingsRouter.route("/")
 	req.body.CustomerId = req.signedCookies['custId'];
 
 	// Checking if the particular customer has already reserved seats on this bookable
+
+	// SELECT FROM Bookings WHERE
 	let alreadyBooked = await Bookings.findOne({where: {BookableId: req.body.BookableId, CustomerId: req.body.CustomerId}});
 
 	if(alreadyBooked)
@@ -55,7 +57,11 @@ bookingsRouter.route("/")
 	}
    	
 	// If the seats are free, they are reserved
+
+	// INSERT INTO Bookings
     let newBooking = await Bookings.create(req.body);
+
+    // INSERT INTO BookedSeats
     for(seat of req.body.Seats)
     {
         console.log(seat);
