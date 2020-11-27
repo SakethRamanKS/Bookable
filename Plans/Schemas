@@ -58,8 +58,8 @@ Bookable count
 Customer:
 
 ID PRI KEY // Option 8a
-Name
-DOB
+Name ??
+DoB
 Gender
 
 
@@ -69,11 +69,7 @@ BookableID FOREIGN KEY
 CustomerID FOREIGN KEY
 TXNID
 TicketCount
-
-Seat:
-
-BookableId FORIEIGN KEY
-SeatNo PARTIAL KEY
+Seats
 
 List of relationships:
 

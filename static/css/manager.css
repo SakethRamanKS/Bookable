@@ -1,0 +1,93 @@
+body
+{
+	background-color: #282c34!important;
+	color: white;
+}
+
+header
+{
+	font-family: 'Goldman', cursive;
+	font-size: 300%;
+	color: #64dd17;
+}
+
+header > a:hover
+{
+	color: #ffe54c;
+	text-decoration: none;
+}
+
+#profileButton
+{
+	float: right;
+	margin-right: 10px;
+	margin-top: 10px;
+}
+
+.centered
+{
+	text-align: center;
+}
+
+.inp-bus
+{
+	border-width: 5px;
+	border-radius: 50px;
+	padding-left: 15px;
+	border-color: #64dd17;
+}
+
+.inp-flight
+{
+	border-width: 5px;
+	border-radius: 50px;
+	padding-left: 15px;
+	border-color: #ffb300;
+}
+
+.bus-label
+{
+	color: #ffb300;
+	font-size: 130%;
+}
+
+.flight-label
+{
+	color: #64dd17;
+	font-size: 130%;
+}
+
+#nav-tabContent
+{
+	border: 0.1px dotted white!important;
+	padding-left: 30px;
+}
+
+#nav-bus-tab:hover
+{
+	color: #ffb300;
+}
+
+#nav-flight-tab:hover
+{
+	color: #64dd17;
+}
+
+#BusSubmit
+{
+	background-color: #ffb300!important;
+	color: black!important;
+}
+
+#FlightSubmit
+{
+	background-color: #64dd17!important;
+	color: black!important;
+}
+
+/*#define secondary #ffb300
+#define secondary-light #ffe54c
+#define secondary-dark #c68400
+#define primary #64dd17
+#define primary-light #9cff57
+#define primary-dark #1faa00*/

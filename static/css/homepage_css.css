@@ -110,3 +110,13 @@
         color: black !important;
 
       }
+
+      input
+      {
+        float: right;
+      }
+
+      label.radio
+      {
+        float:center;
+      }
