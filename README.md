@@ -25,7 +25,7 @@ DB_NAME=databaseName`
 
 If everything goes well, the website homepage should open:
 
-![Bookable Homepage](./static/Image/bookable-pic.png)
+![Bookable Homepage](./static/Image/bookable-pic.PNG)
 
 ## Technologies Used
 
