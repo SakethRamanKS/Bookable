@@ -23,6 +23,10 @@ DB_NAME=databaseName`
 6. Open localhost:3000 on a web browser.
 7. Done! 
 
+If everything goes well, the website homepage should open:
+
+![Bookable Homepage](./static/Image/bookable-pic.png)
+
 ## Technologies Used
 
 - NodeJS for the web server
