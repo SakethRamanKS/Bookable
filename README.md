@@ -33,3 +33,10 @@ If everything goes well, the website homepage should open:
 - JQuery
 - Sequelize ORM
 - MySQL Database
+
+## Authors
+
+Bookable, crafted by
+
+- @SakethRamanKS
+- @Ranga1503
