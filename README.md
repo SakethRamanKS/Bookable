@@ -9,7 +9,13 @@ A generic seat reservation system for buses and flights
 - node and npm
 - A MySQL Database
 
-### Instructions
+### Website Link
+
+The website is currently hosted on the Heroku Free Tier and the MySQL database is stored on AWS RDS
+
+https://bookable321.herokuapp.com/homepage.htm
+
+### Running Locally
 
 1. Clone the repository using `git clone`
 2. Navigate to the repository directory using `cd`
