@@ -3,3 +3,4 @@ node_modules
 *.iml
 .connectionTest.js.swp
 .env
+Plans/
