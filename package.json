@@ -11,7 +11,7 @@
     "cookie-parser": "^1.4.5",
     "csv-parser": "^2.3.3",
     "dotenv": "^8.2.0",
-    "express": "^4.17.1",
+    "express": "^4.18.2",
     "mysql": "^2.18.1",
     "mysql2": "^2.2.5",
     "sequelize": "^6.29.0"
